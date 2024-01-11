@@ -1,0 +1,13 @@
+{
+	"name": "securecontext-checker",
+	"version": "0.0.2",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"check": "node index.js"
+	},
+	"dependencies": {
+		"@webref/idl": "^3.42.4",
+		"fdir": "^6.0.1"
+	}
+}
