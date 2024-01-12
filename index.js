@@ -34,3 +34,7 @@ for (const mdnSecureItem of mdnItems.secure) {
 		console.log(mdnSecureItem);
 	}
 }
+
+for (const webrefSecureItem of webrefItems.secure) {
+	//console.log(webrefSecureItem);
+}
