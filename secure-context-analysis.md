@@ -30,17 +30,17 @@ In the interests of simplicity, I think it would fine to stop having secure cont
 
 ### Globals
 
-Because MDN doesn't represent globals properly, it can't map IDL structure to pages on globals. For example, [`caches`](https://developer.mozilla.org/en-US/docs/Web/API/caches) doesn't exist in the WebIDL, where it is defined as an attribute of the `WindowOrWOrkerGlobaslScope` mixin. So MDN can't derive its secure context state from the IDL.
+Because MDN doesn't represent globals properly, it can't map IDL structure to pages on globals. For example, [`caches`](https://developer.mozilla.org/en-US/docs/Web/API/caches) doesn't exist in the WebIDL, where it is defined as an attribute of the `WindowOrWorkerGlobalScope` mixin. So MDN can't derive its secure context state from the IDL.
 
-This is another argument for representing globals correctly: https://github.com/orgs/mdn/discussions/360.
+This is another argument for representing globals properly: https://github.com/orgs/mdn/discussions/360.
 
 ### Events
 
-Events don't appear in the IDL either, but MDN treats them as members of interfaces. So, for instance, MDN has a page for the [`devicemotion` event on `Window`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event) which is marked as secure. I've dealt with this by looking for event handler attributes like [`ondevicemotion`](https://w3c.github.io/deviceorientation/#ref-for-dom-window-ondevicemotion) attribute, and mangling the name to match the MDN slug. This seems to work pretty well.
+MDN treats events as members of interfaces. So, for instance, MDN has a page for the [`devicemotion`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event) event on `Window`, which is marked as secure. WebIDL doesn't list events in this way though. However, it does list `on-*` event hander attributes, so dealt with this by looking for event handler attributes like the [`ondevicemotion`](https://w3c.github.io/deviceorientation/#ref-for-dom-window-ondevicemotion) attribute, and mangling the name to match the MDN slug. This seems to work pretty well.
 
 ### Nonstandard features
 
-Obviously, nonstandard features are not in the WebIDL, and if MDN wants to mark them secure context, it has to do it manually. For example, [`FileSystemHandle.remove()`](https://developer.mozilla.org/en-US/docs/Web/API/FileSystemHandle/remove). There are not many of these, and the most common source of them seem to be features that were removed from the specs, like [PaymentAddress](https://developer.mozilla.org/en-US/docs/Web/API/PaymentAddress).
+Obviously, nonstandard features are not in the WebIDL, and if MDN wants to mark them secure context, it has to do so manually. For example, [`FileSystemHandle.remove()`](https://developer.mozilla.org/en-US/docs/Web/API/FileSystemHandle/remove). There are not many of these, and the most common source of them seem to be features that were removed from the specs, like [`PaymentAddress`](https://developer.mozilla.org/en-US/docs/Web/API/PaymentAddress).
 
 ### Maplike/setlike/iterable
 
