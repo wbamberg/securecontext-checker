@@ -63,6 +63,8 @@ function normalizeMemberNameForMDN(parent, member) {
 	// patch static attributes to match MDN names
 	else if (member.special === "static") {
 		return `${member.name}_static`;
+	} else if (parent.type === "namespace") {
+		return `${member.name}_static`;
 	}
 	// patch events to match MDN names
 	else if (

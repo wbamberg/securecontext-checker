@@ -37,7 +37,8 @@ Some other IDL objects that can be found at the top level neither have members n
 We do some mangling of names to make them match MDN:
 
 - constructor members are given the name of the interface, like `DOMPoint.DOMPoint`
-- static members get a `_static` suffix.
+- static members get a `_static` suffix
+- we deal with events by looking for event handler attributes like `onthing` and converting them to `thing_event`
 
 ## index.js
 
