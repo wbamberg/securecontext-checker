@@ -30,7 +30,7 @@ In the interests of simplicity, I think it would fine to stop having secure cont
 
 ### Globals
 
-Because MDN doesn't represent globals properly, it can't map IDL structure to our pages on globals. For example, [`caches`](https://developer.mozilla.org/en-US/docs/Web/API/caches) doesn't exist in the WebIDL, where it is defined as an attribute of the `WindowOrWOrkerGlobaslScope` mixin. So MDN can't derive its secure context state from the IDL.
+Because MDN doesn't represent globals properly, it can't map IDL structure to pages on globals. For example, [`caches`](https://developer.mozilla.org/en-US/docs/Web/API/caches) doesn't exist in the WebIDL, where it is defined as an attribute of the `WindowOrWOrkerGlobaslScope` mixin. So MDN can't derive its secure context state from the IDL.
 
 This is another argument for representing globals correctly: https://github.com/orgs/mdn/discussions/360.
 
