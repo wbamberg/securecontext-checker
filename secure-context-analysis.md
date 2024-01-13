@@ -822,7 +822,9 @@ ScreenDetailed.label
 
 </details>
 
-Again I haven't looked at all of these, but I've looked at a lot, and all the ones I have seen are errors in MDN, that would be fixed by using webref/idl as a source. One common pattern is where an interface is marked secure context required, but the members are not (see for example [`ScreenDetailed`](https://developer.mozilla.org/en-US/docs/Web/API/ScreenDetailed)).
+Again I haven't looked at all of these, but I've looked at a lot, and all the ones I have seen are errors in MDN, that would be fixed by using webref/idl as a source.
+
+One common pattern is where an interface is marked secure context required. In this case we want to mark the interface _and all its members_ secure context required, but often MDN only marks the interface, and not the members. See for example [`ScreenDetailed`](https://developer.mozilla.org/en-US/docs/Web/API/ScreenDetailed).
 
 ### Secure context in MDN, nonexistent in WebIDL
 
