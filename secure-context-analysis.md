@@ -1,6 +1,6 @@
 # Comparing webref and MDN SecureContext values
 
-This documents an attempt to compare the representation of "secure context required" in MDN pages and in the WebIDL in the specifications, as exposed by the webref/idl package.
+This document compares the representation of "secure context required" in MDN pages and in the WebIDL in the specifications, as exposed by the webref/idl package.
 
 Some web platform features are only usable in a secure context. This is communicated in WebIDL by a `SecureContext`flag, and in MDN pages by the inclusion of a `SecureContext_Header` macro. This post compares the information in each of these two sources, with a view to understanding whether and how MDN might use the IDL, via the webref/idl package, instead of the macro.
 
