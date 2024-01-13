@@ -36,7 +36,7 @@ This is another argument for representing globals properly: https://github.com/o
 
 ### Events
 
-MDN treats events as members of interfaces. So, for instance, MDN has a page for the [`devicemotion`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event) event on `Window`, which is marked as secure. WebIDL doesn't list events in this way though. However, it does list `on-*` event hander attributes, so dealt with this by looking for event handler attributes like the [`ondevicemotion`](https://w3c.github.io/deviceorientation/#ref-for-dom-window-ondevicemotion) attribute, and mangling the name to match the MDN slug. This seems to work pretty well.
+MDN treats events as members of interfaces. So, for instance, MDN has a page for the [`devicemotion`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event) event on `Window`, which is marked as secure. WebIDL doesn't list events in this way though. However, it does list `on-*` event hander attributes, so I have dealt with this by looking for event handler attributes like the [`ondevicemotion`](https://w3c.github.io/deviceorientation/#ref-for-dom-window-ondevicemotion) attribute, and mangling the name to match the MDN slug. This seems to work pretty well.
 
 ### Nonstandard features
 
@@ -138,7 +138,10 @@ PerformanceResourceTiming.serverTiming
 
 </details>
 
-I haven't checked all of these, but the ones I have checked just look like errors in MDN - errors that would be fixed if MDN used webref/idl as a source.
+I haven't checked all of these, but the ones I have checked are either:
+
+- errors in MDN - errors that would be fixed if MDN used webref/idl as a source.
+- editorial choices in MDN, like `Geolocation.getCurrentPosition()`
 
 ### Secure context in WebIDL, not secure context in MDN
 
