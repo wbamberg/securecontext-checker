@@ -42,6 +42,10 @@ MDN treats events as members of interfaces. So, for instance, MDN has a page for
 
 Obviously, nonstandard features are not in the WebIDL, and if MDN wants to mark them secure context, it has to do so manually. For example, [`FileSystemHandle.remove()`](https://developer.mozilla.org/en-US/docs/Web/API/FileSystemHandle/remove). There are not many of these, and the most common source of them seem to be features that were removed from the specs, like [`PaymentAddress`](https://developer.mozilla.org/en-US/docs/Web/API/PaymentAddress).
 
+### Nonstandard secure context
+
+Some web platform features are not specified as secure context required, but in practice one or more browser engines does implement a secure context requirement for them. For example, [`Notification`](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's a bit unclear what we should do here.
+
 ### Maplike/setlike/iterable
 
 This is another place where MDN diverges from the WebIDL. WebIDL can mark some interfaces [`setlike`](https://webidl.spec.whatwg.org/#idl-setlike), [`maplike`](https://webidl.spec.whatwg.org/#idl-maplike), or [`iterable`](https://webidl.spec.whatwg.org/#idl-iterable) which implicitly gives them additional members, without representing these members in the WebIDL.
@@ -138,10 +142,10 @@ PerformanceResourceTiming.serverTiming
 
 </details>
 
-I haven't checked all of these, but the ones I have checked are either:
+Most of these discrepancies seem to be either:
 
-- errors in MDN - errors that would be fixed if MDN used webref/idl as a source.
 - editorial choices in MDN, like `Geolocation.getCurrentPosition()`
+- cases where browsers enforce a secure context requirement although the specification does not require it
 
 ### Secure context in WebIDL, not secure context in MDN
 
