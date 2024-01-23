@@ -42,9 +42,9 @@ MDN treats events as members of interfaces. So, for instance, MDN has a page for
 
 Obviously, nonstandard features are not in the WebIDL, and if MDN wants to mark them secure context, it has to do so manually. For example, [`FileSystemHandle.remove()`](https://developer.mozilla.org/en-US/docs/Web/API/FileSystemHandle/remove). There are not many of these, and the most common source of them seem to be features that were removed from the specs, like [`PaymentAddress`](https://developer.mozilla.org/en-US/docs/Web/API/PaymentAddress).
 
-### Nonstandard secure context
+### Implicit secure context
 
-Some web platform features are not specified as secure context required, but in practice one or more browser engines does implement a secure context requirement for them. For example, [`Notification`](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's a bit unclear what we should do here.
+Some web platform features are not specified as secure context required in the IDL, but are implicitly secure context required because they need a permission, and requesting a permission itself requires a secure context. For example, [`Notification`](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's a bit unclear what we should do here.
 
 ### Maplike/setlike/iterable
 
@@ -145,7 +145,7 @@ PerformanceResourceTiming.serverTiming
 Most of these discrepancies seem to be either:
 
 - editorial choices in MDN, like `Geolocation.getCurrentPosition()`
-- cases where browsers enforce a secure context requirement although the specification does not require it
+- cases where features are not marked secure context required in the Web IDL, but require a permission, so are implicitly secure context required
 
 ### Secure context in WebIDL, not secure context in MDN
 
