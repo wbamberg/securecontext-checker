@@ -44,7 +44,7 @@ Obviously, nonstandard features are not in the WebIDL, and if MDN wants to mark 
 
 ### Implicit secure context
 
-Some web platform features are not specified as secure context required in the IDL, but are implicitly secure context required because they need a permission, and requesting a permission itself requires a secure context. For example, [`Notification`](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's a bit unclear what we should do here.
+Some web platform features are not specified as secure context required in the IDL, but are implicitly secure context required because they need a permission, and permissions are always denied if we are not in a secure context. For example, [`Notification`](https://developer.mozilla.org/en-US/docs/Web/API/Notification). It's a bit unclear what we should do here.
 
 ### Maplike/setlike/iterable
 
